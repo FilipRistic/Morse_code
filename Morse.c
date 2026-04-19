@@ -17,7 +17,7 @@ char alphabet[] = {' ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','
 				    '1','2','3','4','5','6','7','8','9','0','.',',',':',';','?','!','-','/'};
 
 
-
+//char * jer nam trebaju stringovi za strcat i strcmp
 char *pomocni_alphabet[] = {"","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
 
 				    "1","2","3","4","5","6","7","8","9","0",".",",",":",";","?","!","-","/"};
@@ -31,7 +31,7 @@ char* code[] = {"","sl","lsss","lsls","lss","s","ssls","lls","ssss","ss","slll",
                 "lllls","lllll","slslsl","llssll","lllsss","lslsls","ssllss","lslsll","lssssl","lssls"};
 
 
-double fast = 500;
+double fast = 500;  //pola sekunde
 
 double slow = 1000;
 
@@ -55,7 +55,7 @@ void blinkletter(char letter) {   //za realizaciju blinkanja jednog slova
 
                 delay(1500);    //1.5 sekundi
 
-		break;
+				break;
 
 	    }
 
@@ -81,11 +81,11 @@ void blinkletter(char letter) {   //za realizaciju blinkanja jednog slova
 
                 digitalWrite(28, 1);
 
-		delay(blinkspeed);
+				delay(blinkspeed);
 
                 digitalWrite(28, 0);
 
-		delay(200);    //pauza izmedju svakog l,s u jednom slovu
+				delay(200);    //pauza izmedju svakog l,s u jednom slovu
 
             }
 
@@ -157,7 +157,7 @@ void recordmessage() {
 
     while (1) {
 
-	r_value = digitalRead(21);
+		r_value = digitalRead(21);
 
         if (r_value == 0) {     //Dugme pritisnuto
 
@@ -165,7 +165,7 @@ void recordmessage() {
 
             TimeCount += 1;
 
-	    i = 0;
+	    	i = 0;
 
         }
 
@@ -193,11 +193,11 @@ void recordmessage() {
 
 
 
-            if (DelayCount > 80) {    //2 sekunde
+            if (DelayCount > 80) {    //2 sekunde ,pauza za slovo izmedju 2 i 4 sekunde
 
                 if (strcmp(CurrentLetter,pomocni) != 0) {
 
-		    printf("%s\n",CurrentLetter);		    
+		    		printf("%s\n",CurrentLetter);		    
                     strcat(CurrentWord,letterlookup(CurrentLetter));
                     strcpy(CurrentLetter, "");
 
@@ -207,17 +207,17 @@ void recordmessage() {
 
 
 
-            if (DelayCount >= 160 && i == 0){    //Dodaje space ,4 sekunde
+            if (DelayCount >= 160 && i == 0){    //Dodaje space ,pauza za rec izmedju 4 i 7 sekundi
 
-		printf("\n");
+				printf("\n");
 
-		printf("Nova rec:\n");
+				printf("Nova rec:\n");
 
                 strcat(CurrentWord, " ");
 
-		i = 1;
+				i = 1;
 
-	    }
+	    	}
 
 
 
